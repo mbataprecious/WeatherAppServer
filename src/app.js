@@ -8,7 +8,7 @@ const cors= require('cors')
 const PORT=process.env.PORT|| 8080
 
 const app = express()
-
+app.use(cors())
 
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -20,12 +20,14 @@ app.set('view engine', 'hbs')
 app.set('views', viewsPath)
 hbs.registerPartials(partialsPath)
 
-app.use(cors())
+
 
 // Setup static directory to serve
 app.use(express.static(publicDirectoryPath))
 
+
 app.get('', (req, res) => {
+    
     res.render('index', {
         title: 'Weather',
         name: 'Mbata Precious'
