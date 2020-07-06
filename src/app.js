@@ -3,13 +3,13 @@ const express = require('express')
 const hbs = require('hbs')
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
-const cors= require('cors')
+
 
 const PORT=process.env.PORT|| 8080
 
 const app = express()
 
-app.use(cors())
+
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public')
 const viewsPath = path.join(__dirname, '../templates/views')
