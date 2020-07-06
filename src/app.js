@@ -3,7 +3,7 @@ const express = require('express')
 const hbs = require('hbs')
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
-
+const cors= require('cors')
 
 const PORT=process.env.PORT|| 8080
 
@@ -19,6 +19,8 @@ const partialsPath = path.join(__dirname, '../templates/partials')
 app.set('view engine', 'hbs')
 app.set('views', viewsPath)
 hbs.registerPartials(partialsPath)
+
+app.use(cors())
 
 // Setup static directory to serve
 app.use(express.static(publicDirectoryPath))
