@@ -5,7 +5,7 @@ const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 const cors= require('cors')
 
-
+const PORT=process.env.PORT|| 8080
 
 const app = express()
 
@@ -100,6 +100,6 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(8080, () => {
-    console.log('Server is up on port 8080.')
+app.listen(PORT, () => {
+    console.log('Server is up on port ' + PORT)
 })
